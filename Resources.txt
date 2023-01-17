@@ -2,7 +2,7 @@ Resources
 ---------
 
 Quiztool:
- - http://34.222.193.143:8080/quiz-tool/
+ - http://35.88.48.207:8080/quiz-tool/
 Github repo (NOTE: this will vanish in two weeks, clone/download before then!)
  - https://github.com/SimonHGR/SafariJava17Cert
 

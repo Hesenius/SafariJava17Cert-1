@@ -14,3 +14,37 @@ D) void doStuff() {
 E) void doStuff() {
      var x = { 1, 2, 3 };
    }
+
+Q) Which are legal
+
+A) for (var x = 0; x < 3; x++)
+   System.out.println(x);
+
+B)
+ try (var in = new FileReader("");
+      var out = new FileWriter("")) {
+ }
+
+C) var var = "var";
+
+Q) Given:
+var x = true ? "99" : 99;
+
+What is the type of x?
+A) none, it's fails to compile
+B) int
+C) String
+D) Object
+E) none of the above
+
+Q) Given:
+String s1 = new String("Hello");
+s1.concat(" world");
+System.out.println(s1);
+
+What is the output?
+A) Hello World
+B) Hello
+C) World
+D) Doesn't compile
+E) Exception at runtime

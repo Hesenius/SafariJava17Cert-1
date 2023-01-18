@@ -6,6 +6,7 @@ import java.util.List;
 public class UseString {
   public static void main(String[] args) {
     String s1 = new String("Hello");
+    s1.concat(" world");
     String s2 = s1.concat(" world");
     System.out.println(s1);
     System.out.println(s2);

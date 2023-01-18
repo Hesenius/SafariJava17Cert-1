@@ -48,3 +48,88 @@ B) Hello
 C) World
 D) Doesn't compile
 E) Exception at runtime
+
+
+Q) Given:
+
+String message = """Hello\
+Java 17 World!""";
+System.out.println(message + "XXX");
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) Hello
+   Java 17 World!XXX
+D) Hello Java 17 World!XXX
+E) Hello Java 17 World!
+   XXX
+
+Q) Given:
+
+       String message = """
+           Hello
+               Java 17 World!""";
+       System.out.println(message + "XXX");
+
+   What is the result?
+   A) Hello
+      Java 17 World!XXX
+   B) Hello
+          Java 17 World!XXX
+   C) Hello
+      Java 17 World!
+      XXX
+   D)     Hello
+              Java 17 World!
+      XXX
+
+Q) Given:
+int i = 3, j = 12, k = 2;
+System.out.println(i + j / k - i);
+
+hat is the result?
+A) -15
+B) 4
+C) 6
+D) -9
+
+Q)  Given:
+       doStuff(3)[5] = 99;
+
+which declaration of doStuff would permit the code to compile?
+
+A)  public static void doStuff(int x, int [] values) {}
+B)  public static int doStuff(int x, int [] values) {return values[x];}
+C)  public static int[] doStuff(int x) {return new int[]{};}
+D)  public static int[] doStuff(int x, int[] values) {return values;}
+E)  public static List<Integer> doStuff(int x) {return new ArrayList<>();}
+
+Q) Given:
+    int x = 10;
+    System.out.println("value is " + (x++ = 99));
+
+What is the result?
+A) 10
+B) 11
+C) 99
+D) 109
+E) 110
+F) Compilation fails
+
+Q) Given:
+    int j = 0;
+    for (int i = 0; i < 3; i++) {
+      if (i > ++j && i % 2 == 0) ++i = ++j;
+      if (j > i + 2) continue;
+      ++j;
+      System.out.println(i + ", " + j);
+    }
+
+What is the result?
+A) 0, 2
+   1, 4
+B) 0, 2
+C) 1, 4
+D) The program runs forever
+E) Compilation fails

@@ -133,3 +133,53 @@ B) 0, 2
 C) 1, 4
 D) The program runs forever
 E) Compilation fails
+
+Q) Given:
+int x = -1;
+sout(x & 5);
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) -1
+D) 0x00000005
+E) 5
+
+Q)
+  public static boolean getValue() {
+    System.out.println("Getting value");
+    return true;
+  }
+
+and:
+    boolean b1 = false;
+    System.out.println(b1 & getValue());
+
+What is the result:
+A) Compilation fails
+B) false
+C) true
+D) Getting value
+   false
+E) Getting value
+   true
+
+Q) Which print "true"
+A) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s == t);
+B) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s.equals(t));
+C) StringBuilder s = new StringBuilder("Hello");
+   StringBuilder t = new StringBuilder("He");
+   t.append("llo");
+   sout(s.equals(t));
+D) List<String> ls = List.of("Fred", "Jim");
+   List<String> ls2 = new ArrayList<>(ls);
+   sout(ls.equals(ls2));
+E) LocalDate ld = LocalDate.of(2021, 3, 29);
+   LocalDate ld2 = LocalDate.of(2021, 3, 29);
+   sout(ld.equals(ld2));

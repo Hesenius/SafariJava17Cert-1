@@ -373,3 +373,76 @@ Q) Given:
    C) If line n1 is removed the code prints: Guten Tag Bye
    D) If line n1 is removed the code prints: Guten Tag
    E) The code fails to compile
+
+Q) Given:
+  int x = 1;
+  // line n1
+  switch(x) {
+    case 1: LocalDate.of(2023, x, 1);
+    default: LocalDate.of(2022, 12, 1);
+  };
+
+ Which are true?
+ A) The code compiles
+ B) The code throws an exception at runtime
+ C) The code compiles if line n1 is replaced with
+    var d =
+ D) The code compiles if the word "yield" is inserted
+    after the colon in both the case and default
+ E) The code compiles if the changes of both C and D
+    are applied
+
+Q) Given:
+class MyException extends Exception {}
+static void mightBreak() throws IOException, FileNotFoundException, SQLException {}
+
+and:
+  void caller() throws Throwable {
+    try {
+      mightBreak();
+    }
+    catch (IOException e) {}
+    // line n1
+
+What can be added at line n1?
+A) catch (IOException e) {}
+B) catch (FileNotFoundException e) {}
+C) catch (SQLException e) {}
+D) catch (Exception e) {}
+E) catch (MyException e) {}
+
+Q) Given
+  void doStuff() throws IOException {};
+  void doStuff2() throws FileNotFoundException {};
+And:
+  void tryStuff() {
+    try {
+      doStuff();
+      doStuff2();
+    } enter code here {
+      // handle both exceptions
+    }
+  }
+What can be inserted at "enter code here"
+to provide handling of exceptions from both
+methods?
+A) catch (IOException | FileNotFoundException e)
+B) catch (FileNotFoundException | IOException e)
+C) catch (FileNotFoundException e)
+D) catch (IOException e)
+E) finally
+
+Q) Given:
+     var in = new FileReader(""); // line n1
+       try (
+           // line n2
+           FileWriter out = new FileWriter("");
+       ) { }
+       // line n3
+
+   Which is/are true
+   A) in; can be added at line n2
+   B) final can be added at line n1
+   C) line n2 can be prefixed with final
+   D) line n2 must be prefixed with final
+   E) in = null; can be added at line n3

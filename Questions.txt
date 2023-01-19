@@ -183,3 +183,21 @@ D) List<String> ls = List.of("Fred", "Jim");
 E) LocalDate ld = LocalDate.of(2021, 3, 29);
    LocalDate ld2 = LocalDate.of(2021, 3, 29);
    sout(ld.equals(ld2));
+
+Q)
+Given:
+String s1 = "Hello";
+String s2 = new StringBuilder("Hello").toString();
+String s3 = s2.intern();
+
+and, in another jarfile:
+   class X {
+     static String h = "Hello";
+   }
+
+Which are true?
+A) s1 == s2
+B) s2 == s3
+C) s1 == s3
+D) X.h == s1
+E) None of the above

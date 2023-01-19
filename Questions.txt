@@ -298,3 +298,48 @@ B) Exception at line n1
 C) Exception at line n2
 D) Compilation failure at line n1
 E) Compilation failure at line n2
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void doOtherStuff() { System.out.println("doOtherStuff"); }
+}
+
+  Base b = new Sub();
+  ((Runnable) b).run();
+What is the result?
+A) doSubStuff
+B) doOtherStuff
+C) doBaseStuff
+D) Exception at runtime
+E) Compilation failure
+
+Q) Given:
+    Object obj = "Hello";
+    if (obj instanceof String) {
+      String str = (String)obj;
+      if (str.length() > 3) {
+        System.out.println(str);
+      } else {
+        System.out.println("Too short");
+      }
+    }
+
+    Which replace the if clause to produce the same output?
+A)    System.out.println(obj instanceof String str && str.length() > 3 ? str : "Too short");
+B)    if (obj instanceof String str when str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Too short");
+C)    if (obj instanceof String str if str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Too short");
+D)    System.out.println(obj instanceof String.class str && str.length() > 3 ? str : "Too short");
+E)    if (obj instanceof String str && str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Too short");

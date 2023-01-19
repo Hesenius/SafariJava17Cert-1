@@ -201,3 +201,100 @@ B) s2 == s3
 C) s1 == s3
 D) X.h == s1
 E) None of the above
+
+Q) Given:
+public class ResolveIdentifier {
+  int x = 99;
+
+  static void showIt() {
+    int x = 98;
+    System.out.println("x is " + x);
+  }
+}
+
+What is the effect of calling showIt?
+A) x is 98
+B) x is 99
+C) Compiler error
+D) RuntimeException
+E) x is <random value>
+
+Q) Given:
+public class Scr {
+  static int x = -1;
+  public static void main(String[] args) { new ScrSub().doStuff(); }
+}
+and:
+class ScrSub extends Scr {
+  int x = 99;
+  void doStuff() {
+    System.out.print(x + ","); // line n1
+    int x = 100;
+    System.out.print(x + ",");
+    System.out.print(Scr.x);
+  }
+}
+What is the result?
+A) Compilation fails at line n1
+B) Exception at line n1
+C) 99, 100, -1
+D) 0, 100, 99
+E) 0, 100, -1
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void doOtherStuff() { System.out.println("doOtherStuff"); }
+}
+and:
+Base b = new Base();
+b.doOtherStuff();
+
+What is the result?
+A) doSubStuff
+B) doOtherStuff
+C) doBaseStuff
+D) Exception at runtime
+E) Compilation failure
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void doOtherStuff() { System.out.println("doOtherStuff"); }
+}
+and:
+Base b = new Base();
+((Sub)b).doOtherStuff();
+
+What is the result?
+A) doSubStuff
+B) doOtherStuff
+C) doBaseStuff
+D) Exception at runtime
+E) Compilation failure
+
+Q) Given:
+class Base {
+  void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+class Sub extends Base {
+  void doBaseStuff() { System.out.println("doSubStuff"); }
+  void length() { System.out.println("doLengthStuff"); }
+}
+and:
+  Base b = new Sub();
+  ((StringBuilder) b) // line n1
+      .length();      // line n2
+
+What is the result?
+A) doLengthStuff
+B) Exception at line n1
+C) Exception at line n2
+D) Compilation failure at line n1
+E) Compilation failure at line n2

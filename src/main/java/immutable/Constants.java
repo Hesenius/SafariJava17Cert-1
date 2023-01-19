@@ -19,11 +19,18 @@ public class Constants {
 //    System.out.println(X.h == s1);
 
     System.out.println("---------------");
-    Object o1 = 1;
+    Object o1 = 1; // pooling "small" values of Integer (-128 -> +127)
     Object o2 = 1;
+    Object o5 = new Integer(1);
     Object o3 = 128;
     Object o4 = 128;
-    System.out.println();
+    System.out.println("o1 == o2? " + (o1 == o2));
+    System.out.println("o1 == o5? " + (o1 == o5));
+    System.out.println("o3 == o4? " + (o3 == o4));
+
+    System.out.println(Double.parseDouble("NaN"));
+    System.out.println(Double.parseDouble("Infinity"));
+    System.out.println(Double.parseDouble("-Infinity"));
   }
 
 }

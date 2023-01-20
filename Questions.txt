@@ -545,3 +545,120 @@ B) @Override public int price() { return price; }
 C) @Override public int price() { return super.price() + 10; }
 D) static String ourStore;
 E) public int getDiscount() { return price / 10; }
+
+Q) Given:
+record Client(String name, int creditLimit) {
+  // line n1
+}
+Which are legal:
+A) At line n1
+   public Client(String name) {
+     this(name, 0);
+   }
+B) at line n1
+   public Client(String name, int creditLimit) {
+     super();
+     this.name = name;
+     this.creditLimit = creditLimit;
+   }
+C) as a separate declaration:
+   record SpecialClient(String name, int creditLimit, String greeting)
+     extends Client(name, creditLimit) {}
+D) at line n1
+   private Client() {
+     this("Unknown", 0);
+   }
+E) at line n1
+   Client {}
+
+Q) Given:
+record Customer(String name, int id) {
+  // line n1
+}
+Which are valid at line n1?
+A)  Customer(String name, int id) {
+      this.name = "Mx. " + name;
+    }
+
+B)  Customer {
+      this.name = name;
+      this.id = id;
+    }
+
+C)  Customer {
+      if (name == null || name.length() == 0 || id < 1)
+        throw new IllegalArgumentException("Bad Customer values");
+      name = "Mr/Mrs/Ms " + name;
+    }
+
+D)  static {}
+
+E)  {}
+
+Q) Given:
+public static Predicate<String> getOne(int x) {
+  return new Predicate<String>() {
+    @Override
+    public boolean test(String s) {
+      return s.length() >= ++x;
+    }
+  };
+}
+and:
+public static void main(String[] args) {
+  System.out.println(List.of("Fred", "Jim", "Sheila")
+          .removeIf(getOne(3)));
+}
+
+  What is the result?
+  A) true
+  B) [Fred, Jim]
+  C) [Jim]
+  D) Compilation fails
+  E) Exception at runtime
+
+Q)  Given:
+interface StudentCriterion {
+  boolean test(Student s);
+}
+
+and:
+class Student {
+  public int getGpa() { return 0; }
+  public List<String> getCourses() { return null; }
+}
+
+  Which are legal (individually):
+  A) StudentCriterion sc = Student s -> { return s.getGpa() > 3;};
+  B) StudentCriterion sc = s -> { s.getGpa() > 3 };
+  C) Object sc = s -> {return s.getGpa() > 3;};
+  D) StudentCriterion sc = (s) -> s.getGpa() > 3;
+  E) StudentCriterion sc = s -> s.getCourses().size();
+
+Q)   Which are correct declarations?
+     A) Comparator<String> cs = s1, s2 -> s2.compareTo(s1);
+     B) Comparator<String> cs = (s1, s2) -> s2.compareTo(s1);
+     C) Comparator<String> cs = (var s1, String s2) -> s2.compareTo(s1);
+     D) Comparator<String> cs = (var s1, s2) -> s2.compareTo(s1);
+     E) Comparator<String> cs = (String s1, String s2) -> s2.compareTo(s1);
+
+// module-info.java
+[open] module my.module.name {
+  exports <package> [ to module.a, module.b ];
+  requires <module.name> ;
+  provides <"interface-like-type"> with <some-concrete-class> ;
+  uses <"interface-like-type">
+  opens <package> [ to module, module...] ; // allows reflection on this package
+}
+// open and opens are mutually exclusive
+// open means free for all reflection by anything!
+
+// take a little investigation into top-down migration and bottom-up migration
+// automatic and unnamed modules
+
+
+
+
+
+
+

@@ -4,8 +4,8 @@ public class Ex1 {
   public static void main(String[] args) {
     SalesItem si = new SalesItem("Candy", 10);
     si.price(); // NOT getPrice()!!!
-    SalesItem.ourStore = "MyShop";
-    SalesItem.ourStore = "YourShop";
+//    SalesItem.ourStore = "MyShop";
+//    SalesItem.ourStore = "YourShop";
   }
 }
 

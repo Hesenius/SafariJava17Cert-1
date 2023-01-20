@@ -446,3 +446,48 @@ Q) Given:
    C) line n2 can be prefixed with final
    D) line n2 must be prefixed with final
    E) in = null; can be added at line n3
+
+Q)  Given, in a single file X.java:
+interface ArbInter {}
+final class Y implements X {}
+sealed interface X /* point x */{}
+// line n1
+
+Which is/are true?
+A) the code compiles as it stands
+B) the code compiles if the following is added at point x
+permits Y, Z
+AND this is added at line 1
+class Z implements X {}
+C) the code compiles if the following is added at point x
+permits Y, Z
+AND this is added at line 1
+record Z(String name) implements X {}
+D) the code compiles if the following is added at point x
+   permits Y extends ArbInter
+E) the code compiles if the following is added at line n1
+non-sealed abstract class Z implements X permits Q {}
+final class Q extends Z {}
+
+Q)  Given:
+---file: mypkg.S1---
+package mypkg;
+sealed class S1 /* point x */ {}
+--------------------
+---file: mypkg.S2---
+package mypkg;
+final class F1 extends S1 {}
+--------------------
+Which is/are true?
+A) The code compiles as is
+B) The code compiles after adding the following at point x
+     permits F1
+C) If a file otherpkg.F2 contains:
+     package otherpkg;
+     final class F2 extends S1 {}
+   and:
+     permits F1, F2 is added to point x
+   then the code definitely compiles
+D) If the additions of C) above are made and the code is
+   entirely in a single module, then the code definitely compiles
+E) none of the above

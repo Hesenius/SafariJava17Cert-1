@@ -491,3 +491,57 @@ C) If a file otherpkg.F2 contains:
 D) If the additions of C) above are made and the code is
    entirely in a single module, then the code definitely compiles
 E) none of the above
+
+Q) Given:
+enum Day {
+  MONDAY(1), TUESDAY;
+  public Day(int d) {}
+  public Day() {}
+}
+and:
+sout(Day.MONDAY)
+
+What is the result?
+A) 1
+B) MONDAY
+C) Day.MONDAY
+D) Exception at runtime
+E) Compilation fails
+
+Q) Given:
+enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES;
+  boolean isTrumps() { return this == HEARTS; }
+}
+
+Which is/are true?
+A) isTrumps is implicitly static
+B) isTrumps can be marked final
+C) if it's necessary to prevent isTrumps being overridden,
+   it should be marked final
+D) isTrumps fails to compile
+E) none of the above
+
+Q) Given:
+enum X {
+  A, B;
+  // line n1
+}
+
+Which can be added at line n1?
+A) @Override public String toString() { return name().toUpperCase(); }
+B) public String toString() { return name().toUpperCase(); }
+C) public String name() { return super.name().toUpperCase(); }
+D) public static String name(X x) { return x.name().toUpperCase(); }
+E) none of the above
+
+Q) Given:
+record SalesItem(String description, int price) {
+  // line n1
+}
+
+Which can be added individually at line n1?
+A) private int stockOnHand;
+B) @Override public int price() { return price; }
+C) @Override public int price() { return super.price() + 10; }
+D) static String ourStore;
+E) public int getDiscount() { return price / 10; }
